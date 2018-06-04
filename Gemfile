@@ -7,3 +7,4 @@ gem 'nokogiri'
 gem 'sitemap-parser'
 
 gem 'byebug'
+gem 'whenever'
