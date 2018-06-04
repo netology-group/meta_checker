@@ -17,6 +17,8 @@ module MetaChecker
     attr_accessor :required_meta_names
     attr_accessor :required_meta_properties
 
+    attr_accessor :slack_webhook_url
+
     def initialize
       @path_to_sitemap = nil
       @required_meta_names = [
@@ -32,6 +34,8 @@ module MetaChecker
         'og:image',
         'og:description'
       ]
+
+      @slack_webhook_url = nil
     end
   end
 

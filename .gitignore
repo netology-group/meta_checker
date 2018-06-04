@@ -1,0 +1,9 @@
+/.bundle
+/log/*
+/tmp/*
+.DS_Store
+.byebug_history
+.idea/*
+.rspec-local
+/nbproject/
+.ruby-version
