@@ -20,6 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 env :PATH, ENV['PATH']
+env :GEM_PATH, ENV['GEM_PATH']
 
 set :output,
   error: "#{Whenever.path}/log/whenever_error.log",
