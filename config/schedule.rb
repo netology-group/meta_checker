@@ -19,7 +19,12 @@
 
 # Learn more: http://github.com/javan/whenever
 
-#
+env :PATH, ENV['PATH']
+
+set :output,
+  error: "#{Whenever.path}/log/whenever_error.log",
+  standard: "#{Whenever.path}/log/whenever_standard.log"
+
 every :day, at: '2:00am' do
-  command "rspec"
+  command "cd #{Whenever.path} && bundle exec rspec"
 end
