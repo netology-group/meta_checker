@@ -18,6 +18,8 @@ module MetaChecker
     attr_accessor :required_meta_properties
 
     attr_accessor :slack_webhook_url
+    attr_accessor :default_title
+    attr_accessor :main_page_url
 
     def initialize
       @path_to_sitemap = nil
@@ -36,15 +38,19 @@ module MetaChecker
       ]
 
       @slack_webhook_url = nil
+      @default_title = nil
+      @main_page_url = nil
     end
   end
 
   # PAYLOAD
   class Parser
-    attr_reader :meta_tags, :meta_with_name, :meta_with_property
+    attr_reader :meta_tags, :meta_with_name, :meta_with_property, :title
 
     def initialize(html_response_body)
       meta_tags = Nokogiri::HTML(html_response_body).search('meta')
+      @title = Nokogiri::HTML(html_response_body).search('title').try(:[], 0)&.children&.to_s
+
       @meta_with_name, @meta_with_property = meta_tags.partition {|el| el.attributes['name']}
     end
 
